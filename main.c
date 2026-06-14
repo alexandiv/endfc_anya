@@ -3,6 +3,7 @@
 #include <errno.h>
 
 // check git 1
+// check git 2
 
 // function prototype - forward declaration
 static double read_double(const char* const ptr);
