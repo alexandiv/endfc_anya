@@ -2,18 +2,20 @@
 #include <stdlib.h>
 #include <errno.h>
 
+// function prototype - forward declaration
 static double read_double(const char* const ptr);
 
+// compile time constants
 enum
 {
-    LINE_WIDTH     = 80 + 2, // конец строки и нуль
-    DATA_WIDTH     = 66,     // длина данных
-    MAT_WIDTH      = 4,      // длина поля номера материала
-    MF_WIDTH       = 2,      // длина поля номера файла
-    MT_WIDTH       = 3,      // длина поля номера секции/реакции
-    NS_WIDTH       = 5,      // длина поля номера строки
-    FIELD_WIDTH    = 11,     // длина одного поля данных
-    PAIRS_PER_LINE = 3       // количество пар x,y в строчке
+    LINE_WIDTH     = 80 + 2, // end of line and zero symbol
+    DATA_WIDTH     = 66,     // length of endf line data field
+    MAT_WIDTH      = 4,      // length of endf material field
+    MF_WIDTH       = 2,      // length of endf file field
+    MT_WIDTH       = 3,      // length of endf section field
+    NS_WIDTH       = 5,      // length of endf string number field
+    FIELD_WIDTH    = 11,     // length of one endf number
+    PAIRS_PER_LINE = 3       // number of pairs (x,y) in endf data
 };
 
 int main()
