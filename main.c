@@ -84,3 +84,19 @@ double read_double(const char *const ptr)
     return result;
 }
 
+int read_int(const char *const ptr)
+{
+    char buf[FIELD_WIDTH + 1]; // 11 + '\0'
+    memcpy(buf, ptr, FIELD_WIDTH);
+    buf[FIELD_WIDTH] = 0;
+
+    errno        = 0;
+    char *endptr = NULL;
+    int   result = strtol(buf, &endptr, 10);
+    if (endptr != buf + FIELD_WIDTH + 1 || errno == ERANGE)
+    {
+        fprintf(stderr, "- Error in parse_int() - conversion failed\n");
+        exit(EXIT_FAILURE);
+    }
+    return result;
+}
